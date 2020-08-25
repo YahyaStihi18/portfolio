@@ -30,46 +30,24 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="main_title">
-					<p class="top_text">Our Service</p>
-					<h2>What Service We <br>
-						Offer For You </h2>
+					<p class="top_text">My Services</p>
+					<h2>My Services<br>
+						For You </h2>
 				</div>
 			</div>
 		</div>
 
 		<div class="row">
+			{% for offer in offers %}
 			<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
 				<div class="service_item">
-					<img src="{% static 'core/img/services/s1.png'%}" alt="">
-					<h4>Web Development</h4>
-					<p>Fruit saw for brought fish forth had ave is man a that their Two he is dominion evening their
-						Fruit saw for
-						brought fish forth</p>
-					<a href="#" class="primary_btn2 mt-35">Learn More</a>
+					<img src="{{offer.image.url}}" alt="">
+					<h4>{{offer.title}}</h4>
+					<p>{{offer.description}}</p>
+					<a href="{{offer.url}}" class="primary_btn2 mt-35">Learn More</a>
 				</div>
 			</div>
-
-			<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-				<div class="service_item">
-					<img src="{% static 'core/img/services/s2.png'%}" alt="">
-					<h4>UX/UI Design</h4>
-					<p>Fruit saw for brought fish forth had ave is man a that their Two he is dominion evening their
-						Fruit saw for
-						brought fish forth</p>
-					<a href="#" class="primary_btn2 mt-35">Learn More</a>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-				<div class="service_item">
-					<img src="{% static 'core/img/services/s3.png'%}" alt="">
-					<h4>WP Developing</h4>
-					<p>Fruit saw for brought fish forth had ave is man a that their Two he is dominion evening their
-						Fruit saw for
-						brought fish forth</p>
-					<a href="#" class="primary_btn2 mt-35">Learn More</a>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 </section>
@@ -82,7 +60,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="main_title">
-					<p class="top_text">Our Tesitmonial</p>
+					<p class="top_text">Tesitmonials </p>
 					<h2>Honourable Client Says <br>
 						About Me </h2>
 				</div>
@@ -90,86 +68,32 @@
 		</div>
 
 		<div class="owl-carousel owl-theme testimonial-slider ">
+			{% for comment in comments %}
 			<div class="testimonial-item">
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="testi-img mb-4 mb-lg-0">
-							<img src="{% static 'core/img/testimonials/testimonial1.png'%}" alt="">
+							<img src="{{comment.image.url}}" alt="">
 						</div>
 					</div>
 					<div class="col-lg-6">
 						<div class="testi-right">
-							<h4>Roser Henrique</h4>
-							<p><small>Project Manager, Apple</small></p>
+							<h4>{{comment.name}}</h4>
+							<p><small>{{comment.title}}</small></p>
 
-							<p>Waters can not replenish hath fly and be to brought isn't very days behold without land
-								every above lights us fruitful wherein divide it him fowl moving may beginning subdue
-								fly waters can't replenish hath fly and be to brought isn't very days behold </p>
+							<p>{{comment.comment}}</p>
 							<ul class="star_rating mt-4">
 								<li><span><i class="fas fa-star"></i></span></li>
 								<li><span><i class="fas fa-star"></i></span></li>
 								<li><span><i class="fas fa-star"></i></span></li>
 								<li><span><i class="fas fa-star"></i></span></li>
-								<li class="disable"><span><i class="fas fa-star"></i></span></li>
+								<li><span><i class="fas fa-star"></i></span></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<div class="testimonial-item">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="testi-img mb-4 mb-lg-0">
-							<img src="{% static 'core/img/testimonials/testimonial1.png'%}" alt="">
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="testi-right">
-							<h4>Roser Henrique</h4>
-							<p><small>Project Manager, Apple</small></p>
-
-							<p>Waters can not replenish hath fly and be to brought isn't very days behold without land
-								every above lights us fruitful wherein divide it him fowl moving may beginning subdue
-								fly waters can't replenish hath fly and be to brought isn't very days behold </p>
-							<ul class="star_rating mt-3">
-								<li><span><i class="fas fa-star"></i></span></li>
-								<li><span><i class="fas fa-star"></i></span></li>
-								<li><span><i class="fas fa-star"></i></span></li>
-								<li><span><i class="fas fa-star"></i></span></li>
-								<li class="disable"><span><i class="fas fa-star"></i></span></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="testimonial-item">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="testi-img mb-4 mb-lg-0">
-							<img src="{% static 'core/img/testimonials/testimonial1.png'%}" alt="">
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="testi-right">
-							<h4>Roser Henrique</h4>
-							<p><small>Project Manager, Apple</small></p>
-
-							<p>Waters can not replenish hath fly and be to brought isn't very days behold without land
-								every above lights us fruitful wherein divide it him fowl moving may beginning subdue
-								fly waters can't replenish hath fly and be to brought isn't very days behold </p>
-							<ul class="star_rating mt-3">
-								<li><span><i class="fas fa-star"></i></span></li>
-								<li><span><i class="fas fa-star"></i></span></li>
-								<li><span><i class="fas fa-star"></i></span></li>
-								<li><span><i class="fas fa-star"></i></span></li>
-								<li class="disable"><span><i class="fas fa-star"></i></span></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 </section>

@@ -17,22 +17,26 @@
 	<link rel="stylesheet" href="{% static '/core/vendors/owl-carousel/owl.carousel.min.css'%}">
 	<link rel="stylesheet" href="{% static '/core/vendors/nice-select/css/nice-select.css'%}">
 	<link rel="stylesheet" href="{% static '/core/css/magnific-popup.css'%}">
+	<link rel="stylesheet" href="{% static '/core/css/preloder.css'%}">
 
 	<!-- main css -->
 	<link rel="stylesheet" href="{% static '/core/css/style.css'%}">
 </head>
 
 <body>
-
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
 	<!--================ Start Header Area =================-->
 	<header class="header_area">
 		<div class="main_menu">
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index.html"><img src="{% static '/core/img/logo.png'%}"
-							alt=""></a>
-					<a class="navbar-brand logo_inner_page" href="index.html"><img
+					<a class="navbar-brand logo_h" href="{% url 'index' %}"><img
+							src="{% static '/core/img/logo2black.png'%}" alt=""></a>
+					<a class="navbar-brand logo_inner_page" href="{% url 'index' %}"><img
 							src="{% static '/core/img/logo2.png'%}" alt=""></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse"
 						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -55,6 +59,7 @@
 		</div>
 	</header>
 	<!--================ End Header Area =================-->
+
 	<!--================ Start Home Banner Area =================-->
 	<section class="home_banner_area">
 		<div class="banner_inner">
@@ -66,10 +71,13 @@
 							<h1 class="text-uppercase">I am Yahya STihi</h1>
 							<h5 class="text-uppercase">Full stack web application developer</h5>
 							<div class="social_icons my-5">
-								<a href="https://www.facebook.com/zorte.ederra.3?ref=bookmarks"><i class="ti-facebook"></i></a>
+								<a href="https://www.facebook.com/zorte.ederra.3?ref=bookmarks"><i
+										class="ti-facebook"></i></a>
 								<a href="https://www.instagram.com/yahyastihi/"><i class="ti-instagram"></i></a>
-								<a href="https://stackoverflow.com/users/13688315/yahyast18"><i class="ti-stack-overflow"></i></a>
-								<a href="https://www.linkedin.com/in/yahya-stihi-1885861a9"><i class="ti-linkedin"></i></a>
+								<a href="https://stackoverflow.com/users/13688315/yahyast18"><i
+										class="ti-stack-overflow"></i></a>
+								<a href="https://www.linkedin.com/in/yahya-stihi-1885861a9"><i
+										class="ti-linkedin"></i></a>
 								<a href="https://github.com/YahyaStihi18"><i class="ti-github"></i></a>
 							</div>
 							<a class="primary_btn" href="{% url 'work' %}"><span>See My Work</span></a>
@@ -135,7 +143,8 @@
 							I develop awesome looking and responsive websites,with integrated APIs And custom plugins
 							based on the customer needs.
 							i also have a strong background in digital marketing,CMS, and ecommerce.
-							I work with the latest well-known frameworks and languages like Python, Django Framework, CSS3, JS, HTML5 and bootstrap. I excel at helping 
+							I work with the latest well-known frameworks and languages like Python, Django Framework,
+							CSS3, JS, HTML5 and bootstrap. I excel at helping
 							clients turn their ideas into reality, and when you hire me, I'll do the same for you!
 						</p>
 						<a class="primary_btn" href="#"><span>Download CV</span></a>
@@ -158,7 +167,6 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="row">
 				{% for offer in offers %}
 				<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
@@ -170,8 +178,6 @@
 					</div>
 				</div>
 				{% endfor %}
-
-
 			</div>
 		</div>
 	</section>
@@ -260,8 +266,9 @@
 							<div class="short_info">
 								<h4><a href="portfolio-details.html">Django</a></h4>
 								<p>Django is a high-level Python Web framework that encourages rapid
-									 development and clean, pragmatic design. Built by experienced developers,
-									  it takes care of much of the hassle of Web development, so you can focus on writing your app without 
+									development and clean, pragmatic design. Built by experienced developers,
+									it takes care of much of the hassle of Web development, so you can focus on writing
+									your app without
 									needing to reinvent the wheel. It’s free and open source.</p>
 							</div>
 						</div>
@@ -273,10 +280,11 @@
 							<div class="overlay"></div>
 							<div class="short_info">
 								<h4><a href="portfolio-details.html">React</a></h4>
-								<p>React is an open-source JavaScript library for 
+								<p>React is an open-source JavaScript library for
 									building user interfaces or UI components. It is
-									 maintained by Facebook and a community of individual developers and companies. 
-									React can be used as a base in the development of single-page or mobile applications.</p>
+									maintained by Facebook and a community of individual developers and companies.
+									React can be used as a base in the development of single-page or mobile
+									applications.</p>
 							</div>
 						</div>
 					</div>
@@ -288,8 +296,8 @@
 							<div class="short_info">
 								<h4><a href="portfolio-details.html">HTML5</a></h4>
 								<p>HTML5 is a new version of
-									 the language HTML, with new elements,
-									  attributes, and behaviors,
+									the language HTML, with new elements,
+									attributes, and behaviors,
 									that allows the building of more diverse and powerful Web sites. </p>
 							</div>
 						</div>
@@ -301,7 +309,7 @@
 							<div class="overlay"></div>
 							<div class="short_info">
 								<h4><a href="portfolio-details.html">CSS3</a></h4>
-								<p>The latest version of the CSS specification.with several new 
+								<p>The latest version of the CSS specification.with several new
 									styling features and improvements to enhance the web presentation capabilities</p>
 							</div>
 						</div>
@@ -313,8 +321,9 @@
 							<div class="overlay"></div>
 							<div class="short_info">
 								<h4><a href="portfolio-details.html">API</a></h4>
-								<p>An API is a set of definitions and protocols for building and integrating application 
-									software. API stands for application programming interface.In basic terms, APIs just allow applications to communicate with one another.</p>
+								<p>An API is a set of definitions and protocols for building and integrating application
+									software. API stands for application programming interface.In basic terms, APIs just
+									allow applications to communicate with one another.</p>
 							</div>
 						</div>
 					</div>
@@ -325,23 +334,23 @@
 							<div class="overlay"></div>
 							<div class="short_info">
 								<h4><a href="portfolio-details.html">SQL</a></h4>
-								<p>is a domain-specific language used in programming and 
+								<p>is a domain-specific language used in programming and
 									designed for managing data held in a relational database
-									 management system (RDBMS), or for stream processing in a 
-									 relational data stream management system (RDSMS). It is 
-									 particularly useful in handling structured data, 
+									management system (RDBMS), or for stream processing in a
+									relational data stream management system (RDSMS). It is
+									particularly useful in handling structured data,
 									i.e. data incorporating relations among entities and variables.</p>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-3 col-md-6 all Front-End upcoming">
+					<div class="col-lg-3 col-md-6 all Front-End popular upcoming">
 						<div class="single_portfolio">
 							<img class="img-fluid w-100" src="{% static '/core/img/portfolio/js.png'%}" alt="">
 							<div class="overlay"></div>
 							<div class="short_info">
 								<h4><a href="portfolio-details.html">ES6</a></h4>
-								<p>ES6 is a major update to JavaScript that includes 
-									dozens of new features. With a focus on simplicity 
+								<p>ES6 is a major update to JavaScript that includes
+									dozens of new features. With a focus on simplicity
 									and readability</p>
 							</div>
 						</div>
@@ -352,7 +361,7 @@
 							<div class="overlay"></div>
 							<div class="short_info">
 								<h4><a href="portfolio-details.html">Bootstrap</a></h4>
-								<p>Bootstrap is a CSS 
+								<p>Bootstrap is a CSS
 									framework directed at responsive,front-end web development.</p>
 							</div>
 						</div>
@@ -365,11 +374,12 @@
 							<div class="short_info">
 								<h4><a href="portfolio-details.html">Python</a></h4>
 								<p>Python is an interpreted, high-level,
-									 general-purpose programming language.  
-									 Python's design philosophy emphasizes code readability with 
-									 its notable use of significant whitespace. Its language constructs
-									  and object-oriented approach aim 
-									to help programmers write clear, logical code for small and large-scale projects.</p>
+									general-purpose programming language.
+									Python's design philosophy emphasizes code readability with
+									its notable use of significant whitespace. Its language constructs
+									and object-oriented approach aim
+									to help programmers write clear, logical code for small and large-scale projects.
+								</p>
 							</div>
 						</div>
 					</div>
@@ -425,7 +435,7 @@
 							</a>
 							<div class="text-wrap">
 								<p>
-									django framework is invented in the news environment which means it is all about 
+									django framework is invented in the news environment which means it is all about
 									time and quick productivity which makes building your website faster.
 								</p>
 							</div>
@@ -444,7 +454,7 @@
 							<div class="text-wrap">
 								<p>
 									my experience in ecommerce and digital marketing is free, i will make
-									 sur that you get the most of your website in a short period of time
+									sur that you get the most of your website in a short period of time
 								</p>
 							</div>
 						</div>
@@ -510,33 +520,34 @@
 				<div class="col-lg-12">
 					<div class="footer_top flex-column">
 						<div class="footer_logo">
-							<a href="#">
-								<img src="{% static '/core/img/logo2.png'%}" alt="">
+							<a href="{% url 'index'%}">
+								<img src="{% static '/core/img/logo2white.png'%}" alt="">
 							</a>
 							<div class="d-lg-block d-none">
 								<nav class="navbar navbar-expand-lg navbar-light justify-content-center">
 									<div class="collapse navbar-collapse offset">
 										<ul class="nav navbar-nav menu_nav mx-auto">
 											<li class="nav-item"><a class="nav-link text-white"
-													href="index.html">Home</a></li>
+													href="{% url 'index' %}">Home</a></li>
 											<li class="nav-item"><a class="nav-link text-white"
-													href="about.html">About</a></li>
+													href="{% url 'services'%}">Services</a></li>
+											<li class="nav-item"><a class="nav-link text-white" href="{%url 'work'%}">My
+													Work</a></li>
 											<li class="nav-item"><a class="nav-link text-white"
-													href="portfolio.html">Portfolio</a></li>
-											<li class="nav-item"><a class="nav-link text-white"
-													href="blog.html">BLog</a></li>
-											<li class="nav-item"><a class="nav-link text-white"
-													href="services.html">Services </a></li>
+													href="{%url 'contact'%}">Contact</a></li>
+
 										</ul>
 									</div>
 								</nav>
 							</div>
 						</div>
 						<div class="footer_social mt-lg-0 mt-4">
-							<a href="#"><i class="fab fa-facebook-f"></i></a>
-							<a href="#"><i class="fab fa-twitter"></i></a>
-							<a href="#"><i class="fab fa-skype"></i></a>
-							<a href="#"><i class="fab fa-pinterest-p"></i></a>
+							<a href="https://www.facebook.com/zorte.ederra.3?ref=bookmarks"><i
+									class="fab fa-facebook-f"></i></a>
+							<a href="https://www.instagram.com/yahyastihi/"><i class="fab fa-instagram"></i></a>
+							<a href="https://stackoverflow.com/users/13688315/yahyast18"><i
+									class="fab fa-stack-overflow"></i></a>
+							<a href="https://github.com/YahyaStihi18"><i class="fab fa-github"></i></a>
 						</div>
 					</div>
 				</div>
@@ -545,9 +556,8 @@
 				<p class="col-lg-8 col-sm-12 footer-text">
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					Copyright &copy;
-					<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is
-					made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-						target="_blank">Colorlib</a>
+					<script>document.write(new Date().getFullYear());</script> All rights reserved |
+					stihiyahya2016@gmail.com<i class="fa fa-heart" aria-hidden="true"></i>
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 				</p>
 			</div>
@@ -570,6 +580,14 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="{% static '/core/js/gmaps.min.js'%}"></script>
 	<script src="{% static '/core/js/theme.js'%}"></script>
+
+	<script>
+		$(window).on('load', function () {
+			$(".loader").fadeOut();
+			$("#preloder").delay(200).fadeOut("slow");
+		});
+	</script>
+
 </body>
 
 </html>

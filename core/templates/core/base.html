@@ -17,20 +17,27 @@
     <link rel="stylesheet" href="{% static '/core/vendors/owl-carousel/owl.carousel.min.css'%}">
     <link rel="stylesheet" href="{% static '/core/vendors/nice-select/css/nice-select.css'%}">
     <link rel="stylesheet" href="{% static '/core/css/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static '/core/css/preloder.css'%}">
+
     <!-- main css -->
     <link rel="stylesheet" href="{% static '/core/css/style.css'%}">
 </head>
 
 <body>
-
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
     <!--================ Start Header Area =================-->
     <header class="header_area header_inner_page">
         <div class="main_menu">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="index.html"><img src="{% static 'core/img/logo.png'%}" alt=""></a>
-                    <a class="navbar-brand logo_inner_page" href="index.html"><img src="{% static 'core/img/logo2.png'%}" alt=""></a>
+                    <a class="navbar-brand logo_h" href="{% url 'index' %}"><img src="{% static 'core/img/logo2.png'%}"
+                            alt=""></a>
+                    <a class="navbar-brand logo_inner_page" href="{% url 'index' %}"><img
+                            src="{% static 'core/img/logo2white.png'%}" alt=""></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -61,33 +68,34 @@
                 <div class="col-lg-12">
                     <div class="footer_top flex-column">
                         <div class="footer_logo">
-                            <a href="#">
-                                <img src="{% static '/core/img/logo2.png'%}" alt="">
+                            <a href="{% url 'index'%}">
+                                <img src="{% static '/core/img/logo2white.png'%}" alt="">
                             </a>
                             <div class="d-lg-block d-none">
                                 <nav class="navbar navbar-expand-lg navbar-light justify-content-center">
                                     <div class="collapse navbar-collapse offset">
                                         <ul class="nav navbar-nav menu_nav mx-auto">
                                             <li class="nav-item"><a class="nav-link text-white"
-                                                    href="index.html">Home</a></li>
+                                                    href="{% url 'index' %}">Home</a></li>
                                             <li class="nav-item"><a class="nav-link text-white"
-                                                    href="about.html">About</a></li>
+                                                    href="{% url 'services'%}">Services</a></li>
+                                            <li class="nav-item"><a class="nav-link text-white" href="{%url 'work'%}">My
+                                                    Work</a></li>
                                             <li class="nav-item"><a class="nav-link text-white"
-                                                    href="portfolio.html">Portfolio</a></li>
-                                            <li class="nav-item"><a class="nav-link text-white"
-                                                    href="blog.html">BLog</a></li>
-                                            <li class="nav-item"><a class="nav-link text-white"
-                                                    href="services.html">Services </a></li>
+                                                    href="{%url 'contact'%}">Contact</a></li>
+
                                         </ul>
                                     </div>
                                 </nav>
                             </div>
                         </div>
                         <div class="footer_social mt-lg-0 mt-4">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-skype"></i></a>
-                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="https://www.facebook.com/zorte.ederra.3?ref=bookmarks"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/yahyastihi/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://stackoverflow.com/users/13688315/yahyast18"><i
+                                    class="fab fa-stack-overflow"></i></a>
+                            <a href="https://github.com/YahyaStihi18"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
@@ -96,9 +104,8 @@
                 <p class="col-lg-8 col-sm-12 footer-text">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;
-                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is
-                    made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                        target="_blank">Colorlib</a>
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved |
+                    stihiyahya2016@gmail.com<i class="fa fa-heart" aria-hidden="true"></i>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
             </div>
@@ -121,6 +128,13 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="{% static '/core/js/gmaps.min.js'%}"></script>
     <script src="{% static '/core/js/theme.js'%}"></script>
+	<script>
+		$(window).on('load', function () {
+			$(".loader").fadeOut();
+			$("#preloder").delay(200).fadeOut("slow");
+		});
+	</script>
+
 </body>
 
 </html>

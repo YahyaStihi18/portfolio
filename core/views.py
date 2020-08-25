@@ -16,13 +16,22 @@ def index(request):
         }
     return render(request,"core/index.html",context)
 
+
 def services(request):
-    return render (request,"core/services.html")
+    comments = Comment.objects.all()
+    offers = Offer.objects.all()
+    context = {
+        'offers':offers,
+        'comments':comments,
+        }
+    return render (request,"core/services.html",context)
+
 
 def work(request):
     works = Work.objects.all()
-    context = {'works':works }
+    context = {'works':works,}
     return render (request,"core/work.html",context)
+
 
 def contact(request):
     form = ContactForm()
