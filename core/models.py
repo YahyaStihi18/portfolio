@@ -40,6 +40,17 @@ class Comment(models.Model):
     def __str__(self):
         return self.name
 
+class Info(models.Model):
+    name = models.CharField(max_length=200)
+    job = models.CharField(max_length=200)
+    about = models.TextField()
+    image = models.ImageField()
+    about_image = models.ImageField()
+    def __str__(self):
+        return self.name
+
+
+
 
 
 

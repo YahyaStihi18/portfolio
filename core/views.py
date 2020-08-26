@@ -1,18 +1,21 @@
 from django.shortcuts import render,redirect
 from .forms import ContactForm
 from django.contrib import messages
-from .models import Work,Offer,Comment
+from .models import Work,Offer,Comment,Info
+
 
 
 
 
 
 def index(request):
+    info = Info.objects.last()
     offers = Offer.objects.all()
     comments = Comment.objects.all()
     context = {
         'offers':offers,
         'comments':comments,
+        'info':info
         }
     return render(request,"core/index.html",context)
 
@@ -43,3 +46,4 @@ def contact(request):
             return redirect('contact')
     context = {'form':form,}
     return render (request,"core/contact.html",context)
+

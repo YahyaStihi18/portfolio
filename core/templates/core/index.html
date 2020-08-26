@@ -68,8 +68,8 @@
 					<div class="col-lg-6">
 						<div class="banner_content">
 							<h3>Hey There !</h3>
-							<h1 class="text-uppercase">I am Yahya STihi</h1>
-							<h5 class="text-uppercase">Full stack web application developer</h5>
+							<h1 class="text-uppercase">I am {{info.name}}</h1>
+							<h5 class="text-uppercase">{{info.job}}</h5>
 							<div class="social_icons my-5">
 								<a href="https://www.facebook.com/zorte.ederra.3?ref=bookmarks"><i
 										class="ti-facebook"></i></a>
@@ -85,7 +85,7 @@
 					</div>
 					<div class="col-lg-4">
 						<div class="home_right_img">
-							<img class="img-fluid" src="{% static '/core/img/banner/home-right.png'%}" alt="">
+							<img class="img-fluid" src="{{info.image.url}}" alt="">
 						</div>
 					</div>
 				</div>
@@ -127,7 +127,7 @@
 			<div class="row justify-content-start align-items-center">
 				<div class="col-lg-5">
 					<div class="about_img">
-						<img class="" src="{% static '/core/img/about-us.png'%}" alt="">
+						<img class="" src="{{info.about_image.url}}" alt="">
 					</div>
 				</div>
 
@@ -135,19 +135,13 @@
 					<div class="main_title text-left">
 						<p class="top_text">About me </p>
 						<h2>
-							full stack web app<br>
-							developer
+							{{info.job}}
 						</h2>
 						<p>
-							My name is Yahya Stihi. I'm a professional full-stack web app developer.<br>
-							I develop awesome looking and responsive websites,with integrated APIs And custom plugins
-							based on the customer needs.
-							i also have a strong background in digital marketing,CMS, and ecommerce.
-							I work with the latest well-known frameworks and languages like Python, Django Framework,
-							CSS3, JS, HTML5 and bootstrap. I excel at helping
-							clients turn their ideas into reality, and when you hire me, I'll do the same for you!
+							My name is {{info.name}}. I'm a professional {{info.job}}.<br>
+							{{info.about}}
 						</p>
-						<a class="primary_btn" href="#"><span>Download CV</span></a>
+						<a class="primary_btn" href="{% static '/core/img/cert/rasume.pdf'%}"><span>Download CV</span></a>
 					</div>
 				</div>
 			</div>
@@ -417,7 +411,7 @@
 							<div class="text-wrap">
 								<p>
 
-									As a backend developer, I've learned to keep the teamwork and workflow flexible,
+									as a team member of developers, I've learned to keep the teamwork and workflow flexible,
 									using different communication techniques for greater productivity
 							</div>
 						</div>
@@ -453,7 +447,7 @@
 							</a>
 							<div class="text-wrap">
 								<p>
-									my experience in ecommerce and digital marketing is free, i will make
+									my experience in ecommerce and digital marketing is in your hands, i will make
 									sur that you get the most of your website in a short period of time
 								</p>
 							</div>
@@ -463,48 +457,62 @@
 			</div>
 		</div>
 	</section>
-	<!--================ End Blog Area =================-->
 
 	<!--================ Start Brands Area =================-->
+
 	<section class="brands-area section_gap_bottom">
 		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="main_title">
+						<p class="top_text">Education</p>
+						<h2>My
+							Certificates</h2>
+					</div>
+				</div>
+			</div>
 			<div class="row justify-content-center">
 				<div class="col-lg-12">
 					<div class="owl-carousel brand-carousel">
-						<!-- single-brand -->
 						<div class="single-brand-item d-table">
 							<div class="d-table-cell">
-								<img src="{% static '/core/img/brands/logo1.png'%}" alt="">
+								<a href="{% static '/core/img/cert/fullstack.pdf'%}" ><img src="{% static '/core/img/cert/fullstack.png'%}" style="max-width: 8rem;" alt=""></a>
 							</div>
 						</div>
 						<!-- single-brand -->
 						<div class="single-brand-item d-table">
 							<div class="d-table-cell">
-								<img src="{% static '/core/img/brands/logo2.png'%}" alt="">
+								<a href="{% static '/core/img/cert/frontend.pdf'%}" ><img src="{% static '/core/img/cert/frontend.png'%}" style="max-width: 5rem;" alt=""></a>
 							</div>
 						</div>
 						<!-- single-brand -->
 						<div class="single-brand-item d-table">
 							<div class="d-table-cell">
-								<img src="{% static '/core/img/brands/logo3.png'%}" alt="">
+								<a href="{% static '/core/img/cert/python3.pdf'%}" ><img src="{% static '/core/img/cert/python.png'%}" style="max-width: 5rem;" alt=""></a>
 							</div>
 						</div>
 						<!-- single-brand -->
 						<div class="single-brand-item d-table">
 							<div class="d-table-cell">
-								<img src="{% static '/core/img/brands/logo4.png'%}" alt="">
+								<a href="{% static '/core/img/cert/sql.pdf'%}" ><img src="{% static '/core/img/cert/sql.png'%}" style="max-width: 5rem;" alt=""></a>
 							</div>
 						</div>
 						<!-- single-brand -->
 						<div class="single-brand-item d-table">
 							<div class="d-table-cell">
-								<img src="{% static '/core/img/brands/logo5.png'%}" alt="">
+								<a href="{% static '/core/img/cert/css.pdf'%}" ><img src="{% static '/core/img/cert/css.webp'%}" style="max-width: 5rem;" alt=""></a>
 							</div>
 						</div>
 						<!-- single-brand -->
 						<div class="single-brand-item d-table">
 							<div class="d-table-cell">
-								<img src="{% static '/core/img/brands/logo3.png'%}" alt="">
+								<a href="{% static '/core/img/cert/html.pdf'%}" ><img src="{% static '/core/img/cert/html.png'%}" style="max-width: 5rem;" alt=""></a>
+							</div>
+						</div>
+						<!-- single-brand -->
+						<div class="single-brand-item d-table">
+							<div class="d-table-cell">
+								<a href="{% static '/core/img/cert/js.pdf'%}" ><img src="{% static '/core/img/cert/js.png'%}" style="max-width: 5rem;" alt=""></a>
 							</div>
 						</div>
 					</div>
@@ -512,7 +520,11 @@
 			</div>
 		</div>
 	</section>
+<div style="text-align: center;">
+<a class="primary_btn" href="{% url 'contact' %}"><span>contact me</span></a>
+</div><br><br>
 	<!--================ End Brands Area =================-->
+
 	<!--================Footer Area =================-->
 	<footer class="footer_area">
 		<div class="container">
