@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import ContactForm
 from django.contrib import messages
-from .models import Work,Offer,Comment,Info,Certificates,Qualities
+from .models import Work,Offer,Comment,Info,Certificate,Qualitie
 
 
 
@@ -12,8 +12,8 @@ def index(request):
     info = Info.objects.last()
     offers = Offer.objects.all()
     comments = Comment.objects.all()
-    certificates = Certificates.objects.all()
-    qualities = Qualities.objects.all()
+    certificates = Certificate.objects.all()
+    qualities = Qualitie.objects.all()
     context = {
         'offers':offers,
         'comments':comments,
@@ -27,7 +27,7 @@ def index(request):
 def services(request):
     comments = Comment.objects.all()
     offers = Offer.objects.all()
-    certificates = Certificates.objects.all()
+    certificates = Certificate.objects.all()
     context = {
         'offers':offers,
         'comments':comments,

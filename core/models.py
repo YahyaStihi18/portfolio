@@ -50,14 +50,14 @@ class Info(models.Model):
     def __str__(self):
         return self.name
 
-class Certificates(models.Model):
+class Certificate(models.Model):
     name = models.CharField(max_length=200)
     image = models.ImageField()
     file = models.FileField()
     def __str__(self):
         return self.name
 
-class Qualities(models.Model):
+class Qualitie(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField()
     description = models.TextField()
