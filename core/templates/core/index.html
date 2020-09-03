@@ -141,7 +141,7 @@
 							My name is {{info.name}}. I'm a professional {{info.job}}.<br>
 							{{info.about}}
 						</p>
-						<a class="primary_btn" href="{% static '/core/img/cert/rasume.pdf'%}"><span>Download CV</span></a>
+						<a class="primary_btn" href="{{info.resume.url}}"><span>Download CV</span></a>
 					</div>
 				</div>
 			</div>
@@ -191,7 +191,7 @@
 				</div>
 			</div>
 
-			<div class="owl-carousel owl-theme testimonial-slider ">
+			<div class="owl-carousel owl-theme testimonial-slider">
 				{% for comment in comments %}
 				<div class="testimonial-item">
 					<div class="row">
@@ -399,61 +399,25 @@
 			</div>
 
 			<div class="row">
+				{% for qualitie in qualities %}
 				<div class="col-lg-4 col-md-6">
 					<div class="single-blog">
 						<div class="thumb">
-							<img class="img-fluid" src="{% static '/core/img/additional/team.jpg'%}" alt="">
+							<img class="img-fluid" src="{{qualitie.image.url}}" alt="">
 						</div>
 						<div class="short_details">
-							<a class="d-block" href="single-blog.html">
-								<h4>Team Work</h4>
-							</a>
+							<h3 class="d-block">
+								<h4>{{qualitie.title}}</h4>
+							</h3>
 							<div class="text-wrap">
 								<p>
-
-									as a team member of developers, I've learned to keep the teamwork and workflow flexible,
-									using different communication techniques for greater productivity
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-blog">
-						<div class="thumb">
-							<img class="img-fluid" src="{% static '/core/img/additional/time.jpg'%}" alt="">
-						</div>
-						<div class="short_details">
-
-							<a class="d-block" href="single-blog.html">
-								<h4>On Time On Budget</h4>
-							</a>
-							<div class="text-wrap">
-								<p>
-									django framework is invented in the news environment which means it is all about
-									time and quick productivity which makes building your website faster.
+									{{qualitie.description}}
 								</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-blog">
-						<div class="thumb">
-							<img class="img-fluid" src="{% static '/core/img/additional/cons.jpg'%}" alt="">
-						</div>
-						<div class="short_details">
-							<a class="d-block" href="single-blog.html">
-								<h4>Free Consultation and advice</h4>
-							</a>
-							<div class="text-wrap">
-								<p>
-									my experience in ecommerce and digital marketing is in your hands, i will make
-									sur that you get the most of your website in a short period of time
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
+				{%endfor%}
 			</div>
 		</div>
 	</section>
@@ -474,47 +438,14 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-12">
 					<div class="owl-carousel brand-carousel">
-						<div class="single-brand-item d-table">
-							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/fullstack.pdf'%}" ><img src="{% static '/core/img/cert/fullstack.png'%}" style="max-width: 8rem;" alt=""></a>
-							</div>
-						</div>
 						<!-- single-brand -->
+						{% for certificate in certificates %}
 						<div class="single-brand-item d-table">
 							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/frontend.pdf'%}" ><img src="{% static '/core/img/cert/frontend.png'%}" style="max-width: 5rem;" alt=""></a>
+								<a href="{{certificate.file.url}}" ><img src="{{ certificate.image.url}}" style="max-width: 5rem;" alt=""></a>
 							</div>
 						</div>
-						<!-- single-brand -->
-						<div class="single-brand-item d-table">
-							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/python3.pdf'%}" ><img src="{% static '/core/img/cert/python.png'%}" style="max-width: 5rem;" alt=""></a>
-							</div>
-						</div>
-						<!-- single-brand -->
-						<div class="single-brand-item d-table">
-							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/sql.pdf'%}" ><img src="{% static '/core/img/cert/sql.png'%}" style="max-width: 5rem;" alt=""></a>
-							</div>
-						</div>
-						<!-- single-brand -->
-						<div class="single-brand-item d-table">
-							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/css.pdf'%}" ><img src="{% static '/core/img/cert/css.webp'%}" style="max-width: 5rem;" alt=""></a>
-							</div>
-						</div>
-						<!-- single-brand -->
-						<div class="single-brand-item d-table">
-							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/html.pdf'%}" ><img src="{% static '/core/img/cert/html.png'%}" style="max-width: 5rem;" alt=""></a>
-							</div>
-						</div>
-						<!-- single-brand -->
-						<div class="single-brand-item d-table">
-							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/js.pdf'%}" ><img src="{% static '/core/img/cert/js.png'%}" style="max-width: 5rem;" alt=""></a>
-							</div>
-						</div>
+						{% endfor %}
 					</div>
 				</div>
 			</div>

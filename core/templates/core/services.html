@@ -115,47 +115,13 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-12">
 					<div class="owl-carousel brand-carousel">
+						{% for certificate in certificates %}
 						<div class="single-brand-item d-table">
 							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/frontend.pdf'%}"  ><img src="{% static '/core/img/cert/fullstack.png'%}" style="max-width: 8rem;" alt=""></a>
+								<a href="{{certificate.file.url}}" ><img src="{{ certificate.image.url}}" style="max-width: 5rem;" alt=""></a>
 							</div>
 						</div>
-						<!-- single-brand -->
-						<div class="single-brand-item d-table">
-							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/frontend.pdf'%}" ><img src="{% static '/core/img/cert/frontend.png'%}" style="max-width: 5rem;" alt=""></a>
-							</div>
-						</div>
-						<!-- single-brand -->
-						<div class="single-brand-item d-table">
-							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/python3.pdf'%}" ><img src="{% static '/core/img/cert/python.png'%}" style="max-width: 5rem;" alt=""></a>
-							</div>
-						</div>
-						<!-- single-brand -->
-						<div class="single-brand-item d-table">
-							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/sql.pdf'%}" ><img src="{% static '/core/img/cert/sql.png'%}" style="max-width: 5rem;" alt=""></a>
-							</div>
-						</div>
-						<!-- single-brand -->
-						<div class="single-brand-item d-table">
-							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/css.pdf'%}" ><img src="{% static '/core/img/cert/css.webp'%}" style="max-width: 5rem;" alt=""></a>
-							</div>
-						</div>
-						<!-- single-brand -->
-						<div class="single-brand-item d-table">
-							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/html.pdf'%}" ><img src="{% static '/core/img/cert/html.png'%}" style="max-width: 5rem;" alt=""></a>
-							</div>
-						</div>
-						<!-- single-brand -->
-						<div class="single-brand-item d-table">
-							<div class="d-table-cell">
-								<a href="{% static '/core/img/cert/js.pdf'%}" ><img src="{% static '/core/img/cert/js.png'%}" style="max-width: 5rem;" alt=""></a>
-							</div>
-						</div>
+						{% endfor %}
 					</div>
 				</div>
 			</div>

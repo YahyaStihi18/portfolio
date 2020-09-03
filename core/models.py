@@ -1,7 +1,7 @@
 from django.db import models
 
 class Contact(models.Model):
-    name = models.CharField('Name',max_length=200)
+    name = models.CharField(max_length=200)
     phone = models.BigIntegerField()
     email = models.EmailField()
     text = models.TextField()
@@ -44,10 +44,28 @@ class Info(models.Model):
     name = models.CharField(max_length=200)
     job = models.CharField(max_length=200)
     about = models.TextField()
+    resume = models.FileField()
     image = models.ImageField()
     about_image = models.ImageField()
     def __str__(self):
         return self.name
+
+class Certificates(models.Model):
+    name = models.CharField(max_length=200)
+    image = models.ImageField()
+    file = models.FileField()
+    def __str__(self):
+        return self.name
+
+class Qualities(models.Model):
+    title = models.CharField(max_length=200)
+    image = models.ImageField()
+    description = models.TextField()
+    def __str__(self):
+        return self.title
+
+
+
 
 
 
