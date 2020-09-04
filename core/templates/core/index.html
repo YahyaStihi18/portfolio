@@ -6,7 +6,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" href="{% static '/core/img/favicon.png'%}" type="image/png">
+	<link rel="icon" href="{{info.icon.url}}" type="image/png">
 	<title>My Portfolio</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="{% static '/core/css/bootstrap.css'%}">
@@ -35,9 +35,9 @@
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<a class="navbar-brand logo_h" href="{% url 'index' %}"><img
-							src="{% static '/core/img/logo2black.png'%}" alt=""></a>
+							src="{{info.logo2.url}}" alt=""></a>
 					<a class="navbar-brand logo_inner_page" href="{% url 'index' %}"><img
-							src="{% static '/core/img/logo2.png'%}" alt=""></a>
+							src="{{info.logo2.url}}" alt=""></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse"
 						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 						aria-expanded="false" aria-label="Toggle navigation">
@@ -71,14 +71,11 @@
 							<h1 class="text-uppercase">I am {{info.name}}</h1>
 							<h5 class="text-uppercase">{{info.job}}</h5>
 							<div class="social_icons my-5">
-								<a href="https://www.facebook.com/zorte.ederra.3?ref=bookmarks"><i
-										class="ti-facebook"></i></a>
-								<a href="https://www.instagram.com/yahyastihi/"><i class="ti-instagram"></i></a>
-								<a href="https://stackoverflow.com/users/13688315/yahyast18"><i
-										class="ti-stack-overflow"></i></a>
-								<a href="https://www.linkedin.com/in/yahya-stihi-1885861a9"><i
-										class="ti-linkedin"></i></a>
-								<a href="https://github.com/YahyaStihi18"><i class="ti-github"></i></a>
+								<a href="{{info.facebook}}"><i class="ti-facebook"></i></a>
+								<a href="{{info.instgram}}"><i class="ti-instagram"></i></a>
+								<a href="{{info.stackoverflow}}"><i class="ti-stack-overflow"></i></a>
+								<a href="{{info.linkedin}}"><i class="ti-linkedin"></i></a>
+								<a href="{{info.github}}"><i class="ti-github"></i></a>
 							</div>
 							<a class="primary_btn" href="{% url 'work' %}"><span>See My Work</span></a>
 						</div>
@@ -243,8 +240,8 @@
 			<div class="filters portfolio-filter">
 				<ul>
 					<li class="active" data-filter="*">all</li>
-					<li data-filter=".Back-End">Back-End</li>
-					<li data-filter=".Front-End">Front-End</li>
+					<li data-filter=".back-end">Back-End</li>
+					<li data-filter=".front-end">Front-End</li>
 					<li data-filter=".popular">popular</li>
 					<li data-filter=".upcoming">upcoming</li>
 				</ul>
@@ -253,131 +250,18 @@
 			<div class="filters-content">
 				<div class="row portfolio-grid">
 					<div class="grid-sizer col-md-3 col-lg-3"></div>
-					<div class="col-lg-6 col-md-6 all Back-End popular">
+					{% for skill in skills %}
+					<div class="col-lg-{{skill.lg}} col-md-6 {% for tag in skill.tags.all %} {{ tag }} {%endfor%} ">
 						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="{% static '/core/img/portfolio/django.png'%}" alt="">
+							<img class="img-fluid w-100" src="{{skill.image.url}}" alt="">
 							<div class="overlay"></div>
 							<div class="short_info">
-								<h4><a href="portfolio-details.html">Django</a></h4>
-								<p>Django is a high-level Python Web framework that encourages rapid
-									development and clean, pragmatic design. Built by experienced developers,
-									it takes care of much of the hassle of Web development, so you can focus on writing
-									your app without
-									needing to reinvent the wheel. It’s free and open source.</p>
+								<h3 style="color: aliceblue;">{{skill.name}}</h3>
+								<p>{{skill.description}}</p>
 							</div>
 						</div>
 					</div>
-
-					<div class="col-lg-6 col-md-6 all Front-End upcoming">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="{% static '/core/img/portfolio/react.png'%}" alt="">
-							<div class="overlay"></div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">React</a></h4>
-								<p>React is an open-source JavaScript library for
-									building user interfaces or UI components. It is
-									maintained by Facebook and a community of individual developers and companies.
-									React can be used as a base in the development of single-page or mobile
-									applications.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-3 col-md-6 all Front-End popular">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="{% static '/core/img/portfolio/html5.png'%}" alt="">
-							<div class="overlay"></div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">HTML5</a></h4>
-								<p>HTML5 is a new version of
-									the language HTML, with new elements,
-									attributes, and behaviors,
-									that allows the building of more diverse and powerful Web sites. </p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-3 col-md-6 all Front-End popular ">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="{% static '/core/img/portfolio/css3.jpg'%}" alt="">
-							<div class="overlay"></div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">CSS3</a></h4>
-								<p>The latest version of the CSS specification.with several new
-									styling features and improvements to enhance the web presentation capabilities</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-6 col-md-6 all Back-End ">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="{% static '/core/img/portfolio/api.png'%}" alt="">
-							<div class="overlay"></div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">API</a></h4>
-								<p>An API is a set of definitions and protocols for building and integrating application
-									software. API stands for application programming interface.In basic terms, APIs just
-									allow applications to communicate with one another.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-6 col-md-6 all Back-End popular">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="{% static '/core/img/portfolio/sql.png'%}" alt="">
-							<div class="overlay"></div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">SQL</a></h4>
-								<p>is a domain-specific language used in programming and
-									designed for managing data held in a relational database
-									management system (RDBMS), or for stream processing in a
-									relational data stream management system (RDSMS). It is
-									particularly useful in handling structured data,
-									i.e. data incorporating relations among entities and variables.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 all Front-End popular upcoming">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="{% static '/core/img/portfolio/js.png'%}" alt="">
-							<div class="overlay"></div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">ES6</a></h4>
-								<p>ES6 is a major update to JavaScript that includes
-									dozens of new features. With a focus on simplicity
-									and readability</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 all Front-End popular">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="{% static '/core/img/portfolio/bootstrap.jpg'%}" alt="">
-							<div class="overlay"></div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">Bootstrap</a></h4>
-								<p>Bootstrap is a CSS
-									framework directed at responsive,front-end web development.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-6 col-md-6 all Back-End popular">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="{% static '/core/img/portfolio/python.jpg'%}" alt="">
-							<div class="overlay"></div>
-							<div class="short_info">
-								<h4><a href="portfolio-details.html">Python</a></h4>
-								<p>Python is an interpreted, high-level,
-									general-purpose programming language.
-									Python's design philosophy emphasizes code readability with
-									its notable use of significant whitespace. Its language constructs
-									and object-oriented approach aim
-									to help programmers write clear, logical code for small and large-scale projects.
-								</p>
-							</div>
-						</div>
-					</div>
-
+					{% endfor %}
 				</div>
 			</div>
 		</div>
@@ -464,7 +348,7 @@
 					<div class="footer_top flex-column">
 						<div class="footer_logo">
 							<a href="{% url 'index'%}">
-								<img src="{% static '/core/img/logo2white.png'%}" alt="">
+								<img src="{{info.logo1.url}}" alt="">
 							</a>
 							<div class="d-lg-block d-none">
 								<nav class="navbar navbar-expand-lg navbar-light justify-content-center">
@@ -485,12 +369,11 @@
 							</div>
 						</div>
 						<div class="footer_social mt-lg-0 mt-4">
-							<a href="https://www.facebook.com/zorte.ederra.3?ref=bookmarks"><i
-									class="fab fa-facebook-f"></i></a>
-							<a href="https://www.instagram.com/yahyastihi/"><i class="fab fa-instagram"></i></a>
-							<a href="https://stackoverflow.com/users/13688315/yahyast18"><i
-									class="fab fa-stack-overflow"></i></a>
-							<a href="https://github.com/YahyaStihi18"><i class="fab fa-github"></i></a>
+							<a href="{{info.facebook}}"><i class="fab fa-facebook-f"></i></a>
+							<a href="{{info.instgram}}"><i class="fab fa-instagram"></i></a>
+							<a href="{{info.stackoverflow}}"><i class="fab fa-stack-overflow"></i></a>
+							<a href="{{info.linkedin}}"><i class="fab fa-linkedin"></i></a>
+							<a href="{{info.github}}"><i class="fab fa-github"></i></a>
 						</div>
 					</div>
 				</div>
