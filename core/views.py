@@ -3,7 +3,8 @@ from .forms import ContactForm
 from django.contrib import messages
 from .models import Work,Offer,Comment,Info,Certificate,Qualitie,Skill
 from taggit.models import Tag
-
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import get_template
 
 
 
@@ -52,6 +53,26 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
+
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            text = form.cleaned_data['text']
+            context = {
+                'name': name,
+                'email': email,
+                'phone':phone,
+                'text':text,
+            }
+
+            mail_subject = 'Portfolio Message'
+            to_email = form.cleaned_data.get('email')
+
+            message = EmailMultiAlternatives(subject=mail_subject,body=text,to=[info.email])
+            html_template=get_template('core/email.html').render(context)
+            message.attach_alternative(html_template,"text/html")
+            message.send()
+            
             form.save()
             messages.success(request,'Thank you for contacting me, I will reply to you as soon as possible.')
             return redirect('contact')
